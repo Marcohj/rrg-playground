@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_01_085039) do
+ActiveRecord::Schema.define(version: 2019_03_01_115717) do
 
   create_table "customers", force: :cascade do |t|
-    t.string "subscription_seats"
+    t.integer "subscription_seats"
     t.string "full_name"
     t.string "address1"
     t.string "address2"
@@ -22,6 +22,21 @@ ActiveRecord::Schema.define(version: 2019_03_01_085039) do
     t.string "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "quantity"
+    t.float "total_price"
+    t.string "full_name"
+    t.string "address1"
+    t.string "address2"
+    t.string "postal_code"
+    t.string "city"
+    t.string "country"
+    t.string "customer_belongs_to"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "customer_id"
   end
 
 end
